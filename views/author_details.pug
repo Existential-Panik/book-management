@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+
+    h1 Author: #{author.name}
+    p #{author.lifespan}
+
+    div(style='margin: 20px 0px 0px 20px')
+        h3 Books 
+
+        dl
+            each book in author_book
+                dt
+                    a(href=book.url) #{book.title}
+                dd #{book.summary}
+            else 
+                p There are no books for this author.
+        
+        hr
+        p
+            a(href=author.url+'/delete') Delete Author
+        p
+            a(href=author.url+'/update') Update author
